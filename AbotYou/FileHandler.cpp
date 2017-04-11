@@ -1,13 +1,18 @@
 #include "FileHandler.h"
 
-FileHandler::FileHandler()
+FileHandler::FileHandler() : m_isInit(false), m_path(nullptr), m_cursorIndex(0), m_isOpen(false)
 {
 
 }
 
 FileHandler::~FileHandler()
 {
+	if (m_path != nullptr)
+	{
+		delete[] m_path;
+	}
 
+	m_path = nullptr;
 }
 
 bool FileHandler::Init(char* path, EFileOCMode ocMode)

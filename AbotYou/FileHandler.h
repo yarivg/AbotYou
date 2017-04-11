@@ -46,7 +46,7 @@ public:
 	 *
 	 * @note: you can initiate the object only once!
 	 */
-	bool Init(char* path, EFileOCMode ocMode);
+	bool Init(const char* path, EFileOCMode ocMode);
 
 	/**
 	 * This method check if the object already initiate
@@ -151,4 +151,12 @@ protected:
 	 * @eturn (bool) - Whether the method success or not
 	 */
 	bool SafeClose();
+
+public:
+	bool			m_isInit;
+	char*			m_path;
+	uint64_t		m_cursorIndex;
+	bool			m_isOpen;
+	EFileOCMode		m_ocMode;
+	EFileMode		m_fileMode;
 };
