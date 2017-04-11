@@ -1,4 +1,6 @@
-/[Dd]ebug/
+# VC files
+*.VC.opendb
+*.VC.db
 
 # Compiled Object files
 *.slo
@@ -30,7 +32,6 @@
 *.out
 *.app
 
-*.sln
 *.pdb
 *.ilk
 *.idb
@@ -40,4 +41,5 @@
 *.filters
 *.log
 /Debug
+/AbotYou/Debug
 .vs/
