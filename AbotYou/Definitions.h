@@ -1,5 +1,18 @@
 #pragma once
 
+#define __DEBUG_MODE
+
+#ifdef __DEBUG_MODE
+
+#define PRINT_DEBUG(str)		printf(str)
+
+#else
+
+#define PRINT_DEBUG
+
+#endif // DEBUG
+
+
 //	This enum represents a type of author of any message
 enum EAuthor
 {
