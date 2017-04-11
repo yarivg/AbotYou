@@ -1,3 +1,7 @@
+# VC files
+*.VC.opendb
+*.VC.db
+
 # Compiled Object files
 *.slo
 *.lo
@@ -37,4 +41,5 @@
 *.filters
 *.log
 /Debug
+/AbotYou/Debug
 .vs/
