@@ -12,6 +12,8 @@
 
 #endif // DEBUG
 
+#define NULL_TERMINATOR			('\0')
+
 
 //	This enum represents a type of author of any message
 enum EAuthor

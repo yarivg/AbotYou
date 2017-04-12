@@ -1,4 +1,6 @@
+#include <string.h>
 #include "FileHandler.h"
+#include "Definitions.h"
 
 // Magic numbers
 #define FSEEK_SUCCESS_VALUE			(0)
@@ -29,22 +31,50 @@ FileHandler::~FileHandler()
 
 bool FileHandler::Init(const char* path, EFileOCMode ocMode)
 {
-	return false;
+	if (m_isInit  || path == nullptr || ocMode >= eFileOCMode_SIZE)
+	{
+		return false;
+	}
+
+	size_t pathLength = strlen(path);
+
+	m_path = new char[pathLength + 1];
+
+	m_path[pathLength] = NULL_TERMINATOR;
+
+	if (strcpy(m_path, path) == nullptr)
+	{
+		return false;
+	}
+
+	m_isInit = true;
+
+	return true;
 }
 
 bool FileHandler::IsInit() const
 {
-	return false;
+	return m_isInit;
 }
 
 bool FileHandler::Open(EFileMode fileMode)
 {
-	return false;
+	if (!m_isInit || m_ocMode == eFileOCMode_Auto)
+	{
+		return false;
+	}
+
+	return SafeOpen(fileMode);
 }
 
 bool FileHandler::Close()
 {
-	return false;
+	if (!m_isInit || m_ocMode == eFileOCMode_Auto)
+	{
+		return false;
+	}
+
+	return SafeClose();
 }
 
 bool FileHandler::Write(uint8_t* buffer, uint64_t length)
