@@ -77,14 +77,68 @@ bool FileHandler::Close()
 	return SafeClose();
 }
 
-bool FileHandler::Write(uint8_t* buffer, uint64_t length)
+bool FileHandler::Write(const uint8_t* buffer, uint64_t length)
 {
-	return false;
+	if (!m_isInit || buffer == nullptr || length == 0)
+	{
+		return false;
+	}
+
+	if (!m_isOpen)
+	{
+		if (m_ocMode == eFileOCMode_Auto)
+		{
+			if (!SafeOpen(eFileMode_Write))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	bool returnValue = (fwrite(buffer, sizeof(uint8_t), length, m_file) == length);
+
+	if (m_ocMode = eFileOCMode_Auto)
+	{
+		SafeClose();
+	}
+
+	return returnValue;
 }
 
 uint64_t FileHandler::Read(uint8_t* o_buffer, uint64_t maxLength)
 {
-	return 0;
+	if (!m_isInit || o_buffer == nullptr || maxLength == 0)
+	{
+		return false;
+	}
+
+	if (!m_isOpen)
+	{
+		if (m_ocMode == eFileOCMode_Auto)
+		{
+			if (!SafeOpen(eFileMode_Read))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	uint64_t readBytesAmount = fread(o_buffer, sizeof(uint8_t), maxLength, m_file);
+
+	if (m_ocMode = eFileOCMode_Auto)
+	{
+		SafeClose();
+	}
+
+	return readBytesAmount;
 }
 
 bool FileHandler::Seek(uint64_t index)

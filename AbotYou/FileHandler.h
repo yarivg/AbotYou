@@ -90,7 +90,7 @@ public:
 	 *
 	 * @note			if the file is in Manual OCFileMode - Open it on WRITE MODE before using this method
 	 */
-	bool Write(uint8_t* buffer, uint64_t length);
+	bool Write(const uint8_t* buffer, uint64_t length);
 
 	/**
 	 * This method is for reading buffer from file
