@@ -6,6 +6,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <stdio.h>
 
 // this enum indicate the FileHandler object whether open+close the file every start+end of method or wait for manually 
 //																			opening+closing of the file by he programmer.
@@ -125,11 +126,29 @@ public:
 	bool IsExist() const;
 
 	/**
-	 * This mehod is for delete the file from the file-system of your os
+	 * This mehod is for remove the file from the file-system of your os
 	 *
 	 * @return (bool) - Whether the process success or not
+	 *
+	 * @note	the file must be close!! if it's open, the method will fail
 	 */
-	bool Delete() const; 
+	bool Remove() const; 
+
+	/**
+	 * This method indicate if the file is open or not
+	 *
+	 * @return (bool) - true if the file is open, false if is close
+	 */
+	bool IsOpen() const;
+
+	/**
+	 * This method indicate the current byte ndex to read in the file, the index is of the next byte that will read
+	 *
+	 * @return (bool) - The index of he next byte to read
+	 *
+	 * @note	if the object didn't init yet, it returns 0,so first make sure the object is init
+	 */
+	uint64_t GetIndex() const;
 
 protected:
 	/**
@@ -159,4 +178,5 @@ public:
 	bool			m_isOpen;
 	EFileOCMode		m_ocMode;
 	EFileMode		m_fileMode;
+	FILE*			m_file;
 };
