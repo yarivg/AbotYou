@@ -57,7 +57,7 @@ public:
 	 */
 	bool Write(EErrorMessage error, char* methodName);
 
-public:
+private:
 	bool			m_isInit;
 	FileHandler		m_fileHandler;
 };

@@ -171,7 +171,7 @@ protected:
 	 */
 	bool SafeClose();
 
-public:
+private:
 	bool			m_isInit;
 	char*			m_path;
 	uint64_t		m_cursorIndex;
