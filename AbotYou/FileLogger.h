@@ -5,6 +5,9 @@
 
 #pragma once
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "SLogMessage.h"
 #include "ILogger.h"
 #include "FileHandler.h"

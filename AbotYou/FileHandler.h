@@ -7,6 +7,11 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "Definitions.h"
+
+// Magic numbers
+#define FSEEK_SUCCESS_VALUE			(0)
+#define REMOVE_SUCCESS_VALUE		(0)
 
 // this enum indicate the FileHandler object whether open+close the file every start+end of method or wait for manually 
 //																			opening+closing of the file by he programmer.

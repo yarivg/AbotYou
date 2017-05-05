@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Definitions.h"
+#include "FileLogger.h"
 
 int main()
 {
