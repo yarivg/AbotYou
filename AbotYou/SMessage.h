@@ -28,7 +28,7 @@ struct SMessage
 	char**		dominantWords;
 	
 	//	The date and time of sending the message
-	tm			date;
+	time_t			date;
 	
 	//	The sender of the message- Alpha (output message) or Beta (input message)
 	EAuthor		sender;

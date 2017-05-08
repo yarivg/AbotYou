@@ -15,7 +15,7 @@ struct SConversation
 	//	The amount of messages in the conversation
 	uint16_t	messagesAmount;
 
-	//	Array of all the mesages in the conversation - allocating on the heap memory dynamicly
+ 	//	Array of all the mesages in the conversation - allocating on the heap memory dynamicly
 	SMessage*	messagesArr;
 
 	//	The amount of the dominant words in the conversation- zero if the conversation isn't dominant at all
