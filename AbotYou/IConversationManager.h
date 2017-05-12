@@ -25,5 +25,5 @@ public:
 	*
 	* @return (bool) - Whether the method success or not
 	*/
-	virtual bool FillConversationsNlpFields(SConversation*& o_conversationsArr) = 0;
+	virtual bool FillConversationsNlpFields(uint32_t o_conversationsAmount,SConversation*& o_conversationsArr) = 0;
 };
