@@ -1,7 +1,3 @@
-# VC files
-*.VC.opendb
-*.VC.db
-
 # Compiled Object files
 *.slo
 *.lo
@@ -31,15 +27,3 @@
 *.exe
 *.out
 *.app
-
-*.pdb
-*.ilk
-*.idb
-*.tlog
-*.lastbuildstate
-*.vcxproj
-*.filters
-*.log
-/Debug
-/AbotYou/Debug
-.vs/
