@@ -228,3 +228,38 @@ uint64_t FileHandler::GetIndex() const
 
 	return m_cursorIndex;
 }
+
+int64_t FileHandler::FindByte(uint8_t byte)
+{
+	if (!m_isInit)
+	{
+		return FIND_ERROR_VALUE;
+	}
+
+	FILE* tempFile = fopen(m_path, "rb");
+
+	if (tempFile == nullptr)
+	{
+		return FIND_ERROR_VALUE;
+	}
+
+	// TODO: cehck that not fail
+	fseek(tempFile, m_cursorIndex, SEEK_SET);
+
+	uint32_t counter = 0;
+	uint8_t curByte = 0;
+
+	while (fread(&curByte, sizeof(uint8_t), 1, tempFile) != EOF)
+	{
+		if (curByte == byte)
+		{
+			fclose(tempFile);
+			return counter;
+		}
+
+		counter++;
+	}
+
+	fclose(tempFile);
+	return FIND_NOT_FOUND_VALUE;
+}

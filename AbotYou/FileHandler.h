@@ -12,6 +12,8 @@
 // Magic numbers
 #define FSEEK_SUCCESS_VALUE			(0)
 #define REMOVE_SUCCESS_VALUE		(0)
+#define FIND_ERROR_VALUE			(-1)
+#define	FIND_NOT_FOUND_VALUE		(-2)
 
 // this enum indicate the FileHandler object whether open+close the file every start+end of method or wait for manually 
 //																			opening+closing of the file by he programmer.
@@ -154,6 +156,19 @@ public:
 	 * @note	if the object didn't init yet, it returns 0,so first make sure the object is init
 	 */
 	uint64_t GetIndex() const;
+
+	/**
+	 * This method is for finding specific byte in the file from the current lucation i the file
+	 *
+	 * @param byte -			The byte value to search
+	 *
+	 * @return (int64_t) The offset to the fist byte in the file with the same value like the param 'byte' (if is the next byte to read returns 0)
+	 *
+	 * @note -	if some error occured it will return FIND_ERROR_VALUE (suppose to be -1), 
+	 *			if there wasn't error but the byte value are not exist from this point of 
+	 *			the file so it returns FIND_NOT_FOUND_VALUE (suppose to be -2).
+	 */
+	int64_t FindByte(uint8_t byte);
 
 protected:
 	/**
