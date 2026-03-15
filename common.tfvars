@@ -1,1 +1,1 @@
-some_common_var="from-main-prod"
+some_common_var="merged-from-pr"
