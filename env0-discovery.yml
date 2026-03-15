@@ -1,9 +1,8 @@
 environments:
-  eng-1276-aboutyou-test:
-    name: "eng-1276-aboutyou-discovery"
-    projectName: "ENG-1276"
-    templateName: "null-eng-1276"
-    revision: "eng-1276-revision"
+  eng-1276-prod-test:
+    name: "eng-1276-prod-discovery"
+    projectName: "Yariv"
+    templateName: "null-eng-1276-prod"
     pullRequestPlanDeployments: true
     continuousDeployment: true
     variableFiles:

@@ -1,1 +1,1 @@
-some_common_var="from-aboutyou-main"
+some_common_var="from-main-prod"
